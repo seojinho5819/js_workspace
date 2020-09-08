@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+/*자바스크립트를 이용하면, 실행타임 에도 css를 변경할수 있다
+즉 css를 동적으로 변경할 수 있다*/
+var op =1;
+function transparent(){
+    //문서내의 pic라는 요소의 css중 투명도값을 투명하게 하자
+    op = op - 0.1;
+    document.getElementById("pic").style.opacity= op;
+}
+function detransparent(){
+    //문서내의 pic라는 요소의 css중 투명도값을 투명하게 하자
+    op = op + 0.1;
+    document.getElementById("pic").style.opacity= op;
+}
+
+</script>
+</head>
+<body>
+    <img src="../images/8.jpg" id ="pic"/>
+    <button onclick=" detransparent()">점점불투명하게</button>
+    <button onclick="transparent()">점점투명하게</button>
+    
+    
+</body>
+</html>
