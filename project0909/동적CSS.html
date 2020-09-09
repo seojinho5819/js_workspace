@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin:0px;
+        }
+        #wrapper{
+            width: 800px;
+            height: 600px;
+           
+            margin: auto;
+        }
+        #control{
+            width: 200PX;
+            height: 600px;
+            background: yellow;
+            float:left;
+        }
+        #result{
+            width: 600px;
+            height: 600px;
+            
+            float:left;
+        }
+        #pic{
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+            transform:rotate(40deg) ;
+            transform:scaleX(1);
+            border:1px dotted red;
+        }
+    </style>
+    <script>
+        //이 문서내의 pic라는 요소의 css너비를 늘린다
+
+        var w= 0;
+        var h = 0;
+        var scX=1;
+        var scY=1;
+        var op = 1;
+        var r =0;
+        var bd = 1;
+
+        function setWidth(){
+            w= w +10;
+            document.getElementById("pic").style.width= w+"px";
+        }
+        function setHeight(){
+            h = h + 10;
+            document.getElementById("pic").style.height= h+"px";
+        }
+        function setScaleX(){
+            scX = scX + 0.5;
+            document.getElementById("pic").style.transform="scaleX("+scX+")";
+        }
+        function setScaleY(){
+            scY = scY + 0.5;
+            document.getElementById("pic").style.transform="scaleY("+scY+")";
+        }
+        function setOpacity(){
+            op = op - 0.1;
+            document.getElementById("pic").style.opacity= op;
+
+        }
+        function setRotate(){
+            r = r +45 ;
+            document.getElementById("pic").style.transform="rotate("+r+"deg)";
+
+        }
+        function setBorder(){
+            bd = bd+1;
+            document.getElementById("pic").style.border= bd+"px dotted red";
+        }
+    </script>
+</head>
+<body>
+    <div id ="wrapper">
+        <div id="control">
+            <!-- ul이란 un orderd list 순서없는 목록 -->
+            <ul>
+                <li>
+                    <button onClick="setWidth()">width</button>
+                    <button onClick="setHeight()">height</button>
+                </li>
+                <li>
+                    <button onclick="setScaleX()">scaleX</button>
+                    <button onclick="setScaleY()">scaleY</button>
+                </li>
+                <li>
+                    <button onclick="setOpacity()">opacity</button>
+                </li>
+                <li>
+                    <button onclick="setRotate()">rotate</button>
+                </li>
+                <li>
+                    <button>position</button>
+                </li>
+                <li>
+                    <button onclick="setBorder()">border</button>
+                </li>
+
+                
+            </ul>
+        </div>
+        <div id ="result">
+            <img src="../images/hero/image1.png" id ="pic"/>
+        </div>
+
+    </div>
+</body>
+</html>
