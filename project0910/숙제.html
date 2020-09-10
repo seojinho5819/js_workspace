@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    #box{
+        width: 100px;
+        height: 100px;
+        background: red;
+        border-radius: 100%;
+        position: absolute;
+        left:1px;
+        top:200px;
+    }
+
+</style>
+<script>
+    var x =0;
+    var y =5;
+    var z ;
+    function move(){
+       z=(x==400||x==-5)?-1:1;
+        y = y*z;
+        x =x+y;
+        document.getElementById("box").style.left=x+"px";
+        //정보를 출력하며 개발하기위해
+        document.getElementById("info").value=x;
+    }
+</script>
+</head>
+<body>
+    <button onclick="move()">움직이기</button>
+    <input type="text" id="info"/>
+    <div id="box"></div>
+</body>
+</html>

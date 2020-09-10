@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+   body{
+        background-color: black;
+   }
+</style>
+<script>
+    var i =0;
+    var bg;
+ function turn(){
+     i++;
+     bg = (i%2==1)?"white":"black"
+    document.body.style.background=bg;
+ }
+
+</script>
+</head>
+
+<body>
+    <button onclick="turn()">원터치스위치</button>
+</body>
+</html>

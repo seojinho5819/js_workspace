@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    div{
+        width: 400px;
+        height: 300px;
+        background-color: yellow;
+        font-size:130px;
+        text-align:center;/*div안쪽 컨텐츠의 정렬*/
+    }
+    </style>
+
+    <script>
+        //버튼을 누를때마다 숫자 증가,3의 배수마다 숫자대신 
+        // 원하는 단어를 출력
+       
+        var cnt=0;
+        var n =0;
+        
+        function setCount(){
+            cnt++;
+            n = (cnt%3==0)?"3의 배수":cnt;
+            document.getElementById("box").innerText=n;
+            
+
+
+        }
+    </script>
+</head>
+<body>
+    <button onclick="setCount()">카운터증가</button>
+    <div id="box">0</div>
+</body>
+</html>
