@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 이벤트(event)란 사건 사고 발생 등을 의미..
+    이 개념을 전산에서는 하나의 프로그램 내에서 발생시킬수 있는 사건으로 
+국한된다..
+ex)웹 브라우저에서 일으킬수 있는 사건 사고..
+클릭,브라우져닫기,최소화,키보드 눌렀다 뗌..
+onClick:클릭할떄
+onDblClick :더블클릭할때
+onMouseOver:마우스 올려놓을때
+onMouseOut:마우스가 벗어날때
+onMouseMove:마우사 움직일때
+
+[키보드관련]
+onKeyDown:키보드 누를때.
+onKeyUp:키보드 눌렀다 땔때
+
+[문서관련]
+onLoad:문서내 요소를 모두 일어들었을때
+            실행부가 html의 끝에 도달했을때
+[커서관련]
+onFoucus:커서가 요소에 올라갔을때
+onBlur:커서가 요소에서 벗어날때
+
+사용시 주의점: 사용자들이 예측할수 있는 범위내에 적용하자
+---------------------------------------------
+개념정리
+이벤트vs이벤트핸들러
+1)이벤트 : 발생한 자체의 이름 click,load,keyup
+2)이벤트 핸들러 : 발생한 사건의 처리자 onClick
+                            on+ 이벤트명
+-->
+<button onclick="alert('클릭하셨네요')">클릭</button>
+<button onDblclick="alert('더블클릭하셨네요')">더블 클릭</button>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    var count = 0;
+
+    function play(){
+        count++;
+
+        var n=document.getElementById("txt").value;
+        var p=document.getElementById("path").value;
+        n=parseInt(n);
+        if(count%n==0){
+        var pic1=document.createElement("img"); 
+         pic1.src=p; // <img src=""/> 작성한 것과 동일한 상태임
+        pic1.style.border="2px solid red";
+        pic1.style.width=50+"px";
+        document.body.appendChild(pic1);
+        }
+        else{var pic2=document.createElement("img"); 
+        pic2.src="../images/ball/soccer.jpg"; 
+        pic2.style.border="2px solid red";
+        pic2.style.width=50+"px";
+            document.body.appendChild(pic2);
+        }
+            //appendChild(넣을자식)란? 자식요소를 추가하는 기능이다..
+           
+    }
+    function auto(){
+        setInterval("play()",500);
+    }
+</script>
+
+</head>
+<body>
+    <input id="txt" type="text" placeholder="몇번째마다 공을 생성할것이냐"/>
+    <input id="path" type="text" placeholder="사용될 이미지 경로"/>
+    <button onclick="play()">play</button>
+    <button onclick="auto()">Autoplay</button>
+    <br>
+</body>
+</html>

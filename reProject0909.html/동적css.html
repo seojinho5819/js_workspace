@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+     div{
+            margin:0px;
+        }
+    #wrapper{
+        width: 800px;
+        height: 600px;
+        margin:auto;
+    }    
+    #control{
+            width: 200PX;
+            height: 600px;
+            background: yellow;
+            float:left;
+        }
+    #result{
+        width: 600px;
+        height: 600px;
+        float: left;
+    }
+    #pic{
+            width: 100px;
+            height: 100px;
+            opacity: 1;
+            transform:rotate(40deg) ;
+            transform:scaleX(1);
+            border:1px dotted red;
+        }
+    
+</style>
+<script>
+    var w= 0;
+        var h = 0;
+        var scX=1;
+        var scY=1;
+        var op = 1;
+        var r =0;
+        var bd = 1;
+   function setWidth(){
+        w+=10;
+        document.getElementById("pic").style.width=w+"px";
+   }
+   function setHeight(){
+            h = h + 10;
+            document.getElementById("pic").style.height= h+"px";
+        }
+        function setScaleX(){
+            scX = scX + 0.5;
+            document.getElementById("pic").style.transform="scaleX("+scX+")";
+        }
+        function setScaleY(){
+            scY = scY + 0.5;
+            document.getElementById("pic").style.transform="scaleY("+scY+")";
+        }
+        function setOpacity(){
+            op = op - 0.1;
+            document.getElementById("pic").style.opacity= op;
+
+        }
+        function setRotate(){
+            r = r +45 ;
+            document.getElementById("pic").style.transform="rotate("+r+"deg)";
+
+        }
+        function setBorder(){
+            bd = bd+1;
+            document.getElementById("pic").style.border= bd+"px dotted red";
+        }
+</script>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="control">
+            <ol>
+                <li> 
+                    <button onClick="setWidth()">width</button>
+                    <button onClick="setHeight()">height</button>
+                </li>
+                <li> 
+                    <button onClick="setScaleX()">ScaleX</button>
+                    <button onClick="setScaleY()">ScaleY</button>
+                </li>
+                <li> 
+                    <button onClick="setOpacity()">Opacity</button>
+                    <button onClick="setRotate()">Rotate</button>
+                </li>
+            </ol>
+        </div>
+        <div id ="result">
+            <img src="../images/hero/image1.png" id ="pic"/>
+        </div>
+    </div>
+</body>
+</html>

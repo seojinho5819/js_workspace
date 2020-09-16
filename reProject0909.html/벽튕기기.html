@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #wrapper{
+            width: 500px;
+            height: 500px;
+            background:wheat;
+            margin: auto;
+            position: relative;
+
+        }
+    </style>
+    
+    <script>
+        var box;//div박스를 담을 변수
+        var x=50;
+        var y=80;
+        var mx=5;
+        var my=8 ;
+        var i;
+        var j;
+        
+       
+        //문서가 로드되면,초기화할 작업을 아래의 init()함수에서 처리해보자
+        function init(){
+            //박스의 스타일을 css에서가 아니라 ,js프로그래밍으로 처리된다
+            //효과적으로는 큰차이 없음
+            box = document.getElementById("box");
+            box.style.width = 50+"px";
+            box.style.height = 50+"px";
+            box.style.background = "red";
+            box.style.position = "absolute";
+            box.style.left = 0+"px";
+            box.style.top =100+ "px";
+        }
+        function move(){
+           //x축이 넘어갈때
+           
+            i=((x>=450||x<=0)?-1:1);
+            j=((y>=450||y<=0)?-1:1);
+            mx=mx*i;
+            x= x+mx;
+           my=my*j;
+           y=y+my;
+            //y축에 발이 닿았는지 여부 판단하자(판단기준 700 수평션-50=650에서 체크)
+
+            /*if(y>=450){
+                box.style.background ="blue";
+                //이순간에는 y축의 증가분을 반대로 돌려야한다(부호반대)
+                y=y-my;
+            }
+            else(y<=0){
+
+            }*/
+            //box의 숫자 출력(디버깅 목적으로..)
+            box.innerText="x="+x+",y="+y;
+            box.style.left=x+"px";
+            box.style.top=y+"px";
+
+        }
+        function auto(){
+            setInterval("move()",10);
+        }
+    </script>
+</head>
+<body onLoad="init()">
+        <div id="wrapper">
+            <button onclick="move()">수동</button>
+            <button onclick="auto()">자동</button>
+            <div id="box"></div>
+        </div>
+</body>
+</html>
