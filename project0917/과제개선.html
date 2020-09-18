@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrapper{
+            width: 700px;
+            height: 600px;
+            border:  5px solid black;
+            margin: auto;
+
+        }
+        .wrapper2{
+            width: 150px;
+            height: 600px;
+            float: left;
+            overflow: scroll;
+        }
+        .wrapper img{
+            width: 120px;
+        }
+        div{
+            width: 150px;
+            height: 80px;
+            float: top;
+
+        }
+        .detail{
+            width: 550px;
+            height: 480px;
+            float:left;
+        }
+        .detail img{
+            width: 450px;
+            padding: 50px;
+        }
+
+    </style>
+
+    <script>
+        var detailImg;//createDetail()함수가 호출될때 이 ㄱ밧이 곧 채워질거임
+
+
+        /*문서가 로드되면 썸네일 이미지를 원하는 만큼 등장시키자!*/
+        window.addEventListener("load",function(){
+            createWrapper2();//썸네일 이미지를 생성 및 wrapper div에 추가
+            createDetail(); //큰 이미지 생성 및 detail div에 추가
+        });
+        function createWrapper2(){
+            for(var i=1;i<=10;i++){
+          var wrapper2Image=  document.createElement("img");//<img/>동일!
+        wrapper2Image.src="../images/travel/"+i+".jpg";
+        var wrapper2Div=document.querySelector(".wrapper2");
+            wrapper2Div.appendChild(wrapper2Image);//부착!
+            console.log(i,"번째 이미지 생성");
+
+            //프로그래밍적으로 이벤트 구현하기
+            //아래의 callback함수는 click라는 이벤트가 발생할 때만 수행되므로
+            //코드 위쪽에 명시된 for문의 i를 이용 할 수 없다.
+            //클릿기 일어난 시점의 i는 11이다.
+            wrapper2Image.addEventListener("click",function(){
+                /*이벤트 핸들러 내에서는, 이벤트를 일으킨 주체를 
+                this로 가르킬수 있다
+                여기서 이벤트를 일으킨 주체란 (버튼,택스트박스 등의 컴포넌트)*/
+                console.log("지금 누른 이미지 번호",this.src);
+                detailImg.src=this.src;
+                
+            });
+    }
+}
+        function createDetail(){
+            //이미지 생성후 전역변수로 대입!
+            detailImg =document.createElement("img");
+            detailImg.src="../images/travel/1.jpg";
+            var detailDiv =document.querySelector(".detail");
+            detailDiv.appendChild(detailImg);
+
+        }
+    </script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="wrapper2"> </div>
+        <div class="detail"></div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<script>
+/*리턴값이 있는경우*/
+//function test(){
+ //   return 3;//함수내에 return이 있을경우 실행부는 원래 실행했던 
+    //위치로 되돌아간다!(거울로 반사하는 느낌)
+ //   document.write("실행");
+//}
+/*var x =test();
+document.write(x);*/
+//alert(test());
+
+
+function myFunc(){
+alert("myFunc 함수를 호출했습니다.");
+return 3;
+}
+function testFunc(){
+var x=myFunc();
+alert(x);
+}
+testFunc();
+</script>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<script>
+    function setText(){
+        var bt =document.querySelector("button");
+        /*문서내에 button 태그라 불리는 녀석을*/
+        bt.innerText="저 불렀어요?";
+
+
+    }
+</script>
+</head>
+<body>
+    <img src="../images/travel/3.jpg" id ="pic" onclick="alert(this.src)"/>
+    <!-- 클릭시 버튼의 제목을 바꾸는 다양한 방법을 배워보자 -->
+        <button onclick="this.innerText='왕버튼'">나 눌러바</button>
+</body>
+</html>

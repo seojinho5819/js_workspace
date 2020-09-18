@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<script>
+    function createTable(){
+        //body에 직접 디자인 하지 table을 생성하지 않고 프로그램으로
+        //table을 화면에 출력해본다!
+        
+        var f =prompt("몇층?");
+       var h =prompt("몇호?");
+        document.write("<table border=\"2px\" width=\"1000px\">");
+      
+        for(var i = f;i>=1;i--){
+            document.write("<tr>");
+            
+            for(var j = 1;j<=h;j++){
+                document.write("<td>"+(i*100+j)+"호 </td>");
+            }
+            document.write("</tr>");
+        }
+        document.write("</table>");
+    }
+</script>
+</head>
+<body onload="createTable()">
+    <!-- <table border="2px" width="600px">
+        <tr>
+            <td>301호</td>
+            <td>302호</td>
+            <td>303호</td>
+        </tr>
+        <tr>
+            <td>201호</td>
+            <td>202호</td>
+            <td>203호</td>
+        </tr>
+        <tr>
+            <td>101호</td>
+            <td>102호</td>
+            <td>103호</td>
+        </tr>
+    </table> -->
+</body>
+</html>

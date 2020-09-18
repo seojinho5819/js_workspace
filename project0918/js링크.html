@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //두수의 차를 구하는 연산
+        //var x = 5;
+        //var y = 9;
+        //var z =x-y;
+        //자바스크립트로 수학관련된 함수가 지원된다
+        //Math 객체로 지원된다.
+        //document.write(Math.abs(z));
+        var X;
+        var Y;
+        function getAbs(X,Y){
+            //두수를 대상으로 절대값 구하는 식
+            return Math.abs(X-Y); //함수를 호출한 실행부가 결과를 가지고
+                                        //호출한 곳으로 되돌아감
+        }
+            X = document.getElementById("X").alert("원하는 X를 입력하세요");
+            Y = alert("원하는 Y를 입력하세요");
+
+        document.write(getAbs(X,Y));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        body{
+            margin: 0px;
+        }
+        /*마우스 이벤트는 body를 대상으로는 반을을 보이지 않을 경우가
+        있므로 body만한 크기의 div로 문서 전체를 덮어버리기 위한 div*/
+        .wrapper{
+            width: 100%;
+            height: 700px;
+            background: yellow;
+
+        }
+    </style>
+    <script>
+        //문서가 로드되면 박스에 대한 초기화를 진행
+        var box;
+        var deg=0;
+        let a=0.1;
+        targetX = 800;
+        targetY = 600;
+
+        function init(){
+            box = document.getElementById("box");
+            box.style.position="absolute";
+            box.style.left=0+"px";
+            box.style.top=100+"px";
+        }
+        //지금까지 움직임 과는 다르게 목표지점으로 한꺼번에
+        //건너뛰지말고 조금씩 다가가자(감속도 운동)
+        //목표지점은 700으로 정해놓자!~
+        function move(){
+            //박스의 위치는 = 현재 박스 위치 + a(700-현재박스위치)
+            box.style.left=parseInt(box.style.left)+a*(targetX-parseInt(box.style.left))+"px";
+        // 돌려보자
+        box.style.top=parseInt(box.style.top)+a*(targetY-parseInt(box.style.top))+"px";
+        deg+=5;
+        box.style.transform="rotate("+deg+"deg)";
+        }
+        function auto(){
+            setInterval("move()",50);
+        }
+        function getPos(){//마우스클릭을 따라가게 해는 함수
+            var x = event.clientX;
+            var y = event.clientY;
+            console.log("x is",x);
+            console.log("y is",y);
+            
+
+            targetX=x;
+            targetY=y;
+        }
+
+    </script>
+</head>
+<body onload="init();auto()" onclick="getPos()">
+    <div class="wrapper">
+        <button onclick="move()">움직이기</button>
+        <div id="box"></div>
+</div>
+</body>
+</html>
