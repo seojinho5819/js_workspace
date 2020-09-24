@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style-type: none;
+        }
+    </style>
+    <script>
+        var cnt;
+        function checkAll(){
+           
+            //대표체크박스의 상태에 따라서 나머지 체크박스도 체크상태 결정!
+            var ch = document.getElementsByName("ch");//배열
+            //alert("대표의상태는"+document.getElementById("king").checked);
+            for(var i=0;ch.length;i++){
+                
+                    ch[i].checked=document.getElementById("king").checked;//두번쨰 체크박스를 체크상태로 둔다
+              }
+        }
+    </script>
+</head>
+<body>
+    <ul>
+        <li><input id="king" type="checkbox" onclick="checkAll()" />대표박스</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        <li><input type="checkbox" name="ch"/>메일제목</li>
+        
+    </ul>
+    
+</body>
+</html>

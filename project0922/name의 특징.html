@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        //html에서 div의  name값이 중복되므로 내부적으로는 배열로 존재함
+        //따라서 프로그래밍적으로  ㅐㅂ열의 장점을 활용할 수 있다
+        window.addEventListener("load",function(){
+            //정말로 배열로 존자하는지 체크
+            var box = document.getElementsByName("box");
+            console.log("생성된 div의 수는"+box.length);
+        
+
+
+            for(var i =0;box.length;i++){
+                box[i].style.backgroundColor="red";
+                box[i].style.widows=100+"px";
+                box[i].style.height=100+"px";
+                box[i].style.border="1px solid yellow";
+            }
+        });
+
+    </script>
+</head>
+<body>
+    <!-- 
+        우리가 지금까지 사용해왔던 아이디와 이름은 공통점과 차이점이 뭘까
+        공통점: 문서내의 수많은 요소들간 구분을 위한 식별자
+        차이점: id중복불가 / name중복가능
+
+        name의 특징:이름이 같은 경우 내부적으로 배열로 인식!!(이용가치가 있음)
+     -->
+     <!-- <div name,id></div> -->
+     <div name="box"></div>
+     <div name="box"></div>
+     <div name="box"></div>
+</body>
+</html>

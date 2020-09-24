@@ -1,8 +1,14 @@
-/*-----------랜던함수------------*/
+/*-----------랜던함수,0~n------------*/
 function getRandom(n){
     var r = Math.random();
     return Math.floor((n+1)*r);//소수점을 버린다
 
+}
+/*-----------랜던함수,n~n------------*/
+function getRandomBetween(min,max){
+    var r= Math.random();
+    return Math.floor((max-min+1)*r)+min;
+// return getRandom(max-min)+min;
 }
 
 /*---------------------------------------------------

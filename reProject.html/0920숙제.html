@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        body{
+            margin: 0px;
+        }
+        /*마우스 이벤트는 body를 대상으로는 반을을 보이지 않을 경우가
+        있므로 body만한 크기의 div로 문서 전체를 덮어버리기 위한 div*/
+        .wrapper{
+            width: 100%;
+            height: 700px;
+            background: yellow;
+
+        }
+    </style>
+    <script>
+        //문서가 로드되면 박스에 대한 초기화를 진행
+        var box;
+        var deg=0;
+        let a=0.01;
+        targetX;
+        targetY;
+        var x;
+        var y ;
+        function init(){
+            targetX = 20;
+            targetY = 30;
+            box = document.getElementById("box");
+            box.style.position="absolute";
+            box.style.left=0+"px";
+            box.style.top=100+"px";
+        }
+        //지금까지 움직임 과는 다르게 목표지점으로 한꺼번에
+        //건너뛰지말고 조금씩 다가가자(감속도 운동)
+        //목표지점은 700으로 정해놓자!~
+        function move(){
+            //박스의 위치는 = 현재 박스 위치 + a(700-현재박스위치)
+            box.style.left=parseFloat(box.style.left)+a*(targetX-parsFloat(box.style.left))+"px";
+        // 돌려보자
+        box.style.top=parseFloat(box.style.top)+a*(targetY-parseFloat(box.style.top))+"px";
+       //박스안에 좌표도 출력
+       box.innerText=("x:"+parseFloat(box.style.left)+"\n"+ "y:"+parseFloat(box.style.top));
+       
+        }
+        function auto(){
+            setInterval("move()",10);
+        }
+        function getPos(){
+            x =document.getElementById("x").value;
+            y =document.getElementById("y").value;
+          
+            console.log("x is",x);
+            console.log("y is",y);
+            
+
+            targetX=x;
+            targetY=y;
+        }
+
+    </script>
+</head>
+<body onload="init();auto()" onclick="getPos()" >
+    <div class="wrapper">
+        <input id="x" type="text">x좌표
+        <input id = "y" type="text">y좌표
+        <button onclick="move()">움직이기</button>
+        <div id="box"></div>
+</div>
+</body>
+</html>

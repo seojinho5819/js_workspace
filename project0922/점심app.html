@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/lib.js"></script>
+    <script>
+        var app = new Array();
+        app[0]="고등어백반";
+        app[1]="불고기백반";
+        app[2]="제육백반";
+        app[3]="순두부백반";
+        app[4]="피자";
+        app[5]="짜장면";
+        app[6]="초밥";
+        app[7]="쌀국수";
+        app[8]="피자";
+        app[9]="차돌된장";
+       
+       
+       
+        window.addEventListener("load",function(){
+            var bt =document.querySelector("button");
+            bt.addEventListener("click",function(){
+                //h1에 메뉴를 출력!
+            var h1 =document.querySelector("h1");
+            h1.innerText= app[getRandom(app.length-1)];
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <button >점심메뉴 보여주기</button>
+    <h1></h1>
+</body>
+</html>

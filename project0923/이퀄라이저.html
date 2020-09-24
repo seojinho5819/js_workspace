@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+#wrapper{
+    width:700px;
+    height:600px;
+    border:2px solid red;
+    margin: auto;
+    position: relative;
+}    
+</style>
+<script src="../js/lib.js"></script>
+<script>
+var wrapper;
+//var bar;
+var a=0.01;
+var targetH=[20,20,20,20,20,20,20]; //바들의 각자의 목표 높이
+var barWidth=65;//막대바의 넓이
+var  barArray = new Array();
+var index=0;
+var ran =  getRandomBetween(20,500);
+
+
+
+
+//배열선언과 동시에 초기화가 가능하다(대이터량이 많지안고 반복문과 상관없을경우)
+var colorArray = ["red","orange","yellow","green","blue","navy","purple"];
+
+//막대생성 
+function createBar(){
+    for(var i=0;i<7;i++){
+        var bar=document.createElement("div");
+        bar.style.position="absolute";
+        bar.style.left=(i*barWidth)+"px";
+        bar.style.top=0+"px";
+        bar.style.width=barWidth+"px";
+        bar.style.height=20+"px";
+        bar.style.borderRadius="4px";
+        bar.style.background=colorArray[i];
+        bar.id=i;
+        //여기서 전역변수 index값을 어떻게 주느냐에 따라 움직일지 말지가 결정된다
+        bar.addEventListener("mouseover", function(){
+       //this.style.height=ran;
+            index=this.id;
+            targetH[index]=500;
+        });
+         bar.addEventListener("mouseout", function(){
+             index=this.id;
+            targetH[index]=20;
+        });
+         wrapper.appendChild(bar);//wrapper에 추가!!
+         //사이즈가 0인 배열에 방금 생성된 바를 추가하자!
+         barArray.push(bar);
+
+    }
+
+    
+    //막대에 마우스 오버 이벤트 구현하기 
+   
+
+}    
+
+//막대크기 변경 함수 
+function move(){
+    
+   
+    barArray[index].style.height = parseFloat(barArray[index].style.height) + a*(targetH[index]-parseFloat(barArray[index].style.height))+"px";
+    barArray[index].innerText=parseFloat(barArray[index].style.height);
+}
+
+function init(){
+    wrapper=document.getElementById("wrapper");
+    //barArray보다 생상을 존재시키자
+    // colorArray[0]="red";
+    // colorArray[1]="orange";
+    // colorArray[2]="yellow";
+    // colorArray[3]="green";
+    // colorArray[4]="blue";
+    // colorArray[5]="navy";
+    // colorArray[6]="purple";
+    createBar();
+    setInterval("move()",5);
+}   
+window.addEventListener("load",function(){
+    init();
+}); 
+</script>
+</head>
+<body>
+    <div id="wrapper"></div>
+</body>
+</html>
