@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        margin: 0px;
+    }
+    #wrapper{
+        width: 100%;
+        height: 640px;
+        background-image: url(../images/shooting/bg.jpg);
+
+    }
+
+</style>
+<script src="./Hero.js"></script>
+<script src="./Enemy.js"></script>
+<script src="./Bullet.js"></script>
+<script>
+    var count=0;
+    var wrapper;
+    var bullet;
+    var hero;//주인공을 가리키는 변수
+    var bgX=0;//배경의 움직임 속도를 결정짓는 변수
+    var enemySrc=[
+    "../images/shooting/e1.png",
+    "../images/shooting/e2.png",
+    "../images/shooting/e3.png",
+    "../images/shooting/e4.png",
+    "../images/shooting/e5.png"
+    ];
+    //배경움직임 처리
+    function moveBg(){
+        bgX+=-1;//누적
+        wrapper.style.backgroundPosition=bgX+"px 0px";
+    }
+    //게임에 등장하는 모든 요소를 움직여주는 심장박동!!
+    function gameLoop(){
+        count++;
+        //console.log("count : ",count);
+        moveBg();
+        bullet.move();
+
+        
+    }
+    //주인공 등장함수
+    function createHero(){
+        //주인공 거푸집인 Hero클래스로부터 주인공 인스턴스1개를 생성해본다
+     //생성된 객체를 제어하려면,반드시 변수나 배열이 있어야한다
+        hero = new Hero(wrapper,150,150,100,65);
+     
+     //container,x,y,width,height
+    }
+    function createEnemy(){
+        for(var i=0;i<enemySrc.length;i++){
+            new Enemy(wrapper,70,50,screen.width-150,100+(65*i),enemySrc[i]);
+        }
+        //alert("당신의 모니터 너비"+screen.width+" 높이는 "+screen.height);
+
+    }
+    function createBullet(){
+       bullet = new Bullet(wrapper,hero.x+80,hero.y+50,30,30);
+    }
+    function init(){
+        wrapper = document.getElementById("wrapper");
+        //interval에 지정한 시간은 게임의 실행속도를 좌우한다(FPS:Frame Per Second)
+        setInterval("gameLoop()",1);
+        createHero();
+        createEnemy();
+        document.body.addEventListener("keydown",function(e){
+            if(e.keyCode==32)
+                createBullet();//총알생성
+        });
+    }
+    window.addEventListener("load",function(){
+        init();
+
+    });
+</script>
+</head>
+<body>
+    <div id="wrapper"></div>
+</body>
+</html>

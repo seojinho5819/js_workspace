@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<style>
+    body{
+        margin: 0px;
+    }
+    #wrapper{
+        width: 100%;
+        height: 800px;
+        background: yellow;
+    }
+</style>
+<script src="./Box.js"></script>
+<Script src="../js/lib.js"></Script>
+<script>
+    var b1,b2;
+//마우스를 움직이는 동안, 호출할 함수    
+function getPos(){
+    var x=event.clientX;//마우스 x좌표
+    var y=event.clientY;//마우스 y좌표
+    console.log("x=%d, y=%d", x, y );
+    drag(x,y);
+
+}   
+//박스 나르기
+function drag(x,y){
+    //마우스 좌표를 구한후 b1박스에 x,y좌표값에 대입..
+    //그래야 정보가 계속 유지됨..
+    b1.x=x;
+    b1.y=y;
+    b1.div.style.left=b1.x+"px";
+    b1.div.style.top=b1.y+"px";
+
+    b1.div.innerText="x:"+b1.x+", y:"+b1.y;//마우스 좌표정보
+    b2.div.innerText="x:"+b2.x+", y:"+b2.y;//원래 자기 자신의 정보
+
+    //충돌판단(c축이 교차하고 and(&&) y축도 교차해야함)
+    // if(빨간사각형의 x축 +너비<=목표사각형x)
+    // if((b1.x+b1.width >=b2.x)&&(b1.x<=b2.x+b2.width)){
+    //     alert("x좌표가 교차하네요..");
+    // }
+    // if((b1.y+b1.height >=b2.y)&&(b1.y<=b2.y+b2.height)){
+    //     alert("y좌표가 교차하네요..");
+    // }
+    //-------------------------------------------------------------------
+    // if(((b1.x+b1.width >=b2.x)&&(b1.x<=b2.x+b2.width))&&((b1.y+b1.height >=b2.y)&&(b1.y<=b2.y+b2.height))){
+    //     alert("충돌");
+    // }
+    //-------------------------------------------------------------------
+    var result = collisionCheck(b1.div, b2.div);
+    console.log("충돌여부",result);
+    if(result){
+        b1.div.style.background="green";
+    }
+    else{
+        b1.div.style.background="red";
+    }
+}
+
+function init(){
+    b1=new Box("red",100,200)//빨간상자 
+    b2 = new Box("dodgerblue",500,200);//파란상자
+}    
+window.addEventListener("load", function(){
+    init();
+})    
+</script>
+</head>
+<body onMouseMove="getPos()">
+    <div id="wrapper"></div>    
+</body>
+</html>
