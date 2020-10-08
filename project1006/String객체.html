@@ -1,0 +1,24 @@
+<script>
+
+    var a ="apple";//String 객체의 인스턴스 생성!!
+    var s = new String("banana");
+    console.log(s);
+    /*
+        주의 ) 모든 객체가 new 연산자로 생성되는 것은 아니다..
+        특히 String  의 경우엔 new 연산자에 의해 인스턴스를 생략할 수 있다
+
+        String의 경우엔 너무나 사용빈도가 높기떄문에 new 연산자에 의해
+        인스턴스를 생성한다는 것은 불편하다.. 따라서 객체임에도 불구하고
+        마치 일반 데이터 타입처럼 메모리에 올리는 법을 제공해 주는데
+        이런 방법을 묵시적(암시적) 생성법 이라고 한다.
+    */
+   var x = "korea";
+   console.log(x.length);
+   console.log(x.toUpperCase());
+
+    console.log("3번째 문자를 추출:",x.charAt(2));
+
+    var y ="banana";
+    console.log("a자가 %d에서 발견되었습니다", y.indexOf("a"));
+
+</script>

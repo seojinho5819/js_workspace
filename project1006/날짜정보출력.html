@@ -1,0 +1,13 @@
+<script>
+    //원하는 연월일 입력받아 그날이 무슨 요일인지 출력해 주는 프로그램
+    var yy=parseInt(prompt("원하는 연도를 입력하세요"));
+    var mm=parseInt(prompt("원하는 월을 입력하세요"));
+    var dd=parseInt(prompt("원하는 날짜 입력하세요"));
+    var d = new Date();
+    d.setFullYear(yy);
+    d.setMonth(mm-1);
+    d.setDate(dd);
+    var days = ["일","월","화","수","목","금","토"];
+    var day=days[d.getDay()];
+    alert("그날은"+day+"요일입니다");
+</script>
