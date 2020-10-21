@@ -35,7 +35,7 @@ class Bullet{
                 //너죽(적군배열에서 요소 삭제 splice(index, 갯수), 화면에서도 삭제 removeChild)
                 var img = enemyArray[i].img;
                 wrapper.removeChild(img);
-                enemyArray.splice(0,1);
+                enemyArray.splice(i,1);
                 
                 //나죽자(총알배열에서 요소 삭제splice(index,갯수), 화면에서도 삭제 removeChild)
                 wrapper.removeChild(this.img);    //화면에서 제거

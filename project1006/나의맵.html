@@ -8,7 +8,7 @@
 #myMap{
     width:1000px;
     height:800px;
-    
+    background:yellow;
     margin:auto;
 }    
 </style>
@@ -39,14 +39,14 @@
         marker.setMap(map); //마커를 적용할 맵 객체
 
         //마커에 클릭 이벤트 구현하기
-            var pop = new google.maps.InfoWindow({
-                content:"여기가 역삼 맛집입니다"
-            });
-        google.maps.event.addListener(marker,"click",function(){
+        google.maps.event.addListener(maker,'click',function(){
             
             map.setZoom(20);
             //정보창띄우기
-            pop.open(map,marker);
+            var pop = new google.map.InfoWindow({
+                content:"여기가 역삼 맛집입니다"
+            });
+            pop.open(map,maker);
         });
 
     }    
